@@ -1,0 +1,75 @@
+:root{
+  --paper:#EDF3F6;
+  --grid:#D3E2EA;
+  --ink:#16232E;
+  --ink-soft:#5A6B78;
+  --mark:#FFD84D;
+  --flag:#E5484D;
+  --admin:#9AA9B4;
+
+  --hand:'Gaegu', cursive;
+  --body:'Inter Tight', system-ui, sans-serif;
+  --data:'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:28px 28px;
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:19px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- title ---------- */
+.title{
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:6vh 6vw;
+}
+.title h1{
+  font-family:var(--hand);
+  font-size:clamp(2.6rem,8vw,6.2rem);
+  font-weight:700; line-height:1.05;
+  margin:0 0 .4em; max-width:14ch;
+}
+.title .sub{
+  font-family:var(--data);
+  font-size:.72rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+.scrollcue{
+  margin-top:5vh; font-family:var(--data); font-size:.7rem;
+  letter-spacing:.2em; color:var(--ink-soft);
+  animation:bob 2.2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
+
+/* ---------- type flavours ---------- */
+.said{
+  font-family:var(--hand);
+  font-size:1.75rem; line-height:1.35;
+}
+.beat{
+  font-family:var(--hand);
+  font-size:clamp(2rem,4.4vw,3.4rem);
+  line-height:1.15;
+}
+.admin{
+  font-family:var(--data);
+  font-size:.8rem; color:var(--admin);
+  letter-spacing:.02em;
+}
+mark{
+  background:linear-gradient(transparent 58%, var(--mark) 58%);
+  padding:0 .12em;
+}
+.flag{color:var(--flag); font-weight:700}

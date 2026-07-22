@@ -1,0 +1,126 @@
+/* ---------- scrolly scaffold ---------- */
+.scene{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  gap:0 6vw;
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 6vw;
+}
+.steps{order:1}
+.stage{
+  order:2;
+  position:sticky; top:0;
+  height:100vh;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ---------- the post-it ---------- */
+.note{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  padding:clamp(1.6rem,3vw,2.6rem);
+  background:#FCEE8C;
+  background-image:linear-gradient(160deg,#FDF3A4 0%,#FCEE8C 42%,#F5DE6E 100%);
+  box-shadow:
+    0 1px 1px rgba(20,35,46,.10),
+    0 10px 22px -8px rgba(20,35,46,.30),
+    0 28px 46px -22px rgba(20,35,46,.28);
+  transform:rotate(-1.4deg);
+  transition:transform .5s ease;
+}
+.note::after{ /* curled corner */
+  content:'';
+  position:absolute; right:0; bottom:0;
+  border-width:0 0 26px 26px;
+  border-style:solid;
+  border-color:transparent transparent rgba(20,35,46,.10) transparent;
+}
+.note::before{ /* tape */
+  content:'';
+  position:absolute; top:-13px; left:50%;
+  width:96px; height:26px;
+  transform:translateX(-50%) rotate(-2.5deg);
+  background:rgba(255,255,255,.55);
+  border-left:1px solid rgba(20,35,46,.08);
+  border-right:1px solid rgba(20,35,46,.08);
+}
+.scene:nth-of-type(even) .note{transform:rotate(1.2deg)}
+.note .admin{color:#7C7333}
+.note svg.fig{width:100%; max-width:none}
+.steps{padding:38vh 0}
+.step{
+  min-height:66vh;
+  display:flex; align-items:center;
+  opacity:.22;
+  transition:opacity .45s ease;
+}
+.step.on{opacity:1}
+.step > div{max-width:34ch}
+.step p{margin:0 0 1.1em}
+.step p:last-child{margin-bottom:0}
+
+/* ---------- full-page text (no post-it) ---------- */
+.page{
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:12vh 6vw; gap:2.2rem;
+}
+.page-inner{
+  max-width:52ch;
+  display:flex; flex-direction:column; gap:1.9em;
+}
+.page p{
+  margin:0;
+  font-size:clamp(1.3rem,2.6vw,1.9rem);
+  line-height:1.6;
+}
+.page img{
+  max-width:min(100%,760px); height:auto;
+  border:3px solid var(--ink); background:#fff;
+  box-shadow:0 12px 26px -14px rgba(20,35,46,.35);
+}
+
+/* ---------- full-bleed punctuation slides ---------- */
+.punch{
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:10vh 6vw;
+  gap:.4em;
+}
+.punch .big{
+  font-family:var(--hand);
+  font-size:clamp(2.4rem,7vw,5.4rem);
+  line-height:1.1; margin:0;
+}
+.punch .small{font-family:var(--data); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft)}
+.punch .conclude{
+  font-family:var(--body); font-weight:700;
+  font-size:clamp(1.2rem,2.4vw,1.6rem); margin:0;
+}
+.punch .lead{
+  font-family:var(--body); font-weight:400;
+  font-size:clamp(1.1rem,2.2vw,1.45rem);
+  line-height:1.6; max-width:42ch; margin:.3rem 0 0;
+}
+
+/* the three-word slide */
+.ladder{list-style:none; padding:0; margin:0; text-align:center}
+.ladder li{
+  font-family:var(--hand);
+  font-size:clamp(2rem,6vw,4.4rem);
+  line-height:1.25;
+  opacity:0; transform:translateY(18px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.ladder li.on{opacity:1; transform:none}
+.ladder li:nth-child(2){color:var(--ink-soft)}
+.ladder li:nth-child(3){
+  font-family:var(--data);
+  font-size:clamp(1rem,2.6vw,1.9rem);
+  color:var(--admin);
+  letter-spacing:.02em;
+}

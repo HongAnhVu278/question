@@ -1,0 +1,136 @@
+/* ---------- figures ---------- */
+svg.fig{width:min(100%,460px); height:auto; overflow:visible}
+.stroke{
+  fill:none; stroke:var(--ink); stroke-width:5;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.stroke.thin{stroke-width:3.4}
+.stroke.grey{stroke:var(--admin)}
+.bubble{
+  fill:#fff; stroke:var(--ink); stroke-width:3.4;
+  stroke-linejoin:round;
+}
+.bubble-txt{
+  font-family:var(--hand); font-size:26px;
+  fill:var(--ink); text-anchor:middle;
+}
+.bubble-txt.tiny{font-family:var(--data); font-size:12px; fill:var(--admin)}
+
+.pop{opacity:0; transform:scale(.86); transform-origin:center; transition:opacity .4s ease, transform .4s cubic-bezier(.3,1.5,.5,1)}
+.pop.on{opacity:1; transform:none}
+
+.walk{animation:sway 2.6s ease-in-out infinite}
+.walk.b{animation-delay:-1.3s}
+@keyframes sway{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-5px) rotate(.6deg)}}
+
+.cage{
+  fill:none; stroke:var(--admin); stroke-width:2.5;
+  stroke-dasharray:6 5;
+  opacity:0; transition:opacity .6s ease;
+}
+.cage.on{opacity:1}
+
+/* ---------- bare stage: raw screenshots, no post-it ---------- */
+.phrasestack{
+  display:flex; flex-direction:column; gap:1.5rem;
+  width:100%; max-width:520px;
+}
+.phrasestack img{
+  width:100%; height:auto;
+  background:#fff;
+  border:2px solid var(--ink);
+  padding:.5rem .75rem;
+  box-shadow:0 8px 18px -12px rgba(20,35,46,.3);
+}
+.phrasestack img:nth-child(1){transform:rotate(-.8deg)}
+.phrasestack img:nth-child(2){transform:rotate(.7deg)}
+.phrasestack img:nth-child(3){transform:rotate(-.4deg)}
+
+/* video poster (clickable, opens youtube) */
+.videobox{
+  position:relative; display:block; overflow:hidden;
+  width:100%; max-width:640px;
+  aspect-ratio:16/9;
+  border:3px solid var(--ink);
+  background:#000;
+  box-shadow:0 12px 26px -14px rgba(20,35,46,.4);
+  text-decoration:none;
+}
+.videobox img{width:100%; height:100%; object-fit:cover; display:block}
+.videobox .playbtn{
+  position:absolute; inset:0; margin:auto;
+  width:76px; height:76px;
+  display:grid; place-items:center;
+  padding-left:6px;               /* optically center the triangle */
+  background:rgba(20,35,46,.72); color:#fff;
+  border-radius:50%; font-size:1.7rem;
+  transition:transform .2s ease, background .2s ease;
+}
+.videobox:hover .playbtn{transform:scale(1.08); background:var(--flag)}
+
+/* sticky commentary text on a bare stage */
+.stage.bare .page-inner p{
+  margin:0;
+  font-size:clamp(1.2rem,2.4vw,1.7rem);
+  line-height:1.6;
+}
+
+/* the shrinking ladder rungs */
+.rung{font-family:var(--hand); margin:0; line-height:1.1}
+.rung.big{font-size:clamp(2.4rem,6vw,4.4rem)}
+.rung.mid{font-size:clamp(2rem,5vw,3.6rem); color:var(--ink-soft)}
+.rung.mono{
+  font-family:var(--data);
+  font-size:clamp(1rem,2.6vw,1.7rem);
+  color:var(--admin); letter-spacing:.02em;
+}
+.rung.note{
+  font-family:var(--data);
+  font-size:clamp(.9rem,2vw,1.15rem);
+  color:var(--admin); letter-spacing:.02em; margin-top:.6rem;
+}
+
+/* single-column ladder: sticky text on top, rungs stack below one per scroll */
+.scene.stack{grid-template-columns:1fr; max-width:760px}
+.scene.stack .stage{
+  order:1; position:sticky; top:8vh; height:auto;
+  display:block; justify-content:initial;
+}
+.scene.stack .steps{order:2; padding:16vh 0 0}
+.scene.stack .step{min-height:26vh; margin:0; opacity:0}
+.ladderblock{display:flex; flex-direction:column; gap:1rem; max-width:46ch}
+.ladderblock .ages{
+  margin:0 0 1.2rem;
+  font-size:clamp(1.2rem,2.4vw,1.6rem); line-height:1.6;
+}
+
+/* ---------- misc blocks ---------- */
+.qr{
+  width:150px;height:150px;
+  border:3px solid var(--ink);
+  display:grid;place-items:center;
+  font-family:var(--data);font-size:.62rem;
+  text-align:center;color:var(--ink-soft);
+  background:#fff;
+}
+.embed{
+  width:100%; aspect-ratio:16/9;
+  border:3px solid var(--ink); background:#fff;
+  display:grid; place-items:center;
+  font-family:var(--data); font-size:.72rem;
+  color:var(--ink-soft); text-align:center; padding:1rem;
+}
+.chartslot{
+  width:100%; aspect-ratio:4/3;
+  border:3px dashed var(--admin); background:#fff;
+  display:grid; place-items:center;
+  font-family:var(--data); font-size:.72rem; color:var(--admin);
+  text-align:center; padding:1rem;
+}
+.pause{height:34vh}
+
+footer{
+  padding:12vh 6vw; text-align:center;
+  font-family:var(--data); font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft);
+}

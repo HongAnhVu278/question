@@ -1,0 +1,16 @@
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  body{font-size:17px}
+  .scene{grid-template-columns:1fr; padding:0 7vw}
+  .stage{order:1; height:48vh; top:0; z-index:2}
+  .steps{order:2; padding:4vh 0 20vh}
+  .note{transform:none; max-width:none; padding:1.3rem}
+  .note::before{width:70px}
+  .scene:nth-of-type(even) .note{transform:none}
+  .step{min-height:auto; margin-bottom:16vh; opacity:1}
+  svg.fig{width:min(100%,320px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
