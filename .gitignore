@@ -8,5 +8,9 @@ Thumbs.db
 .idea/
 .vscode/
 
+# secrets and build output
+.env
+/server/server
+
 # learning note
 NOTES.md
