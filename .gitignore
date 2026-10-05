@@ -14,3 +14,14 @@ Thumbs.db
 
 # learning note
 NOTES.md
+
+# agent config + local issue tracker 
+CLAUDE.md
+/docs/agents/
+.scratch/
+
+# pisa raw data
+/analysis/data/raw
+
+# jupyter autosaves
+.ipynb_checkpoints/
