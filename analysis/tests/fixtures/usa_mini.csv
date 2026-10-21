@@ -1,0 +1,30 @@
+CNT,country,CNTSCHID,ST004D01T,gender,OCOD3,occupation,W_FSTUWT
+USA,United States,84000001,1.0,Female,2211,Generalist medical practitioners,10.0
+USA,United States,84000002,1.0,Female,2211,Generalist medical practitioners,8.0
+USA,United States,84000003,1.0,Female,2631,Economists,14.0
+USA,United States,84000004,1.0,Female,0110,Commissioned armed forces officers,12.0
+USA,United States,84000005,1.0,Female,9702,"Learning, studying",11.0
+USA,United States,84000001,1.0,Female,2341,Primary school teachers,9.0
+USA,United States,84000002,1.0,Female,2635,Social work and counselling professionals,7.0
+USA,United States,84000003,1.0,Female,9112,"Cleaners and helpers in offices, hotels and other establishments",6.0
+USA,United States,84000004,1.0,Female,0,Armed forces occupations,5.0
+USA,United States,84000005,1.0,Female,011,Commissioned armed forces officers,4.0
+USA,United States,84000001,1.0,Female,3221,Nursing associate professionals,3.0
+USA,United States,84000002,1.0,Female,2166,Graphic and multimedia designers,2.0
+USA,United States,84000003,1.0,Female,9111,Domestic cleaners and helpers,1.0
+USA,United States,84000004,1.0,Female,9704,"I do not know, it's hard to say",5.0
+USA,United States,84000005,1.0,Female,9705,"Answer too general (e.g. good job, well paid job, employee, worker)",3.0
+USA,United States,84000001,1.0,Female,9999,No response,50.0
+USA,United States,84000002,1.0,Female,9998,Invalid,40.0
+USA,United States,84000003,1.0,Female,9995,Valid skip,30.0
+USA,United States,84000001,2.0,Male,2512,Software developers,20.0
+USA,United States,84000002,2.0,Male,2512,Software developers,20.0
+USA,United States,84000003,2.0,Male,7231,Motor vehicle mechanics and repairers,25.0
+USA,United States,84000004,2.0,Male,2141,Industrial and production engineers,15.0
+USA,United States,84000005,2.0,Male,9701,"Doing housework, bringing up children",10.0
+USA,United States,84000001,2.0,Male,9704,"I do not know, it's hard to say",10.0
+USA,United States,84000002,2.0,Male,9997,Not applicable,60.0
+USA,United States,84000003,2.0,Male,9996,System missing,60.0
+USA,United States,84000004,,,2631,Economists,100.0
+ALB,Albania,00800001,1.0,Female,2211,Generalist medical practitioners,1000.0
+ALB,Albania,00800001,2.0,Male,2211,Generalist medical practitioners,1000.0

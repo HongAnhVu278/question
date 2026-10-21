@@ -25,3 +25,9 @@ CLAUDE.md
 
 # jupyter autosaves
 .ipynb_checkpoints/
+
+# virtual environments
+.venv/
+
+# python bytecode cache
+__pycache__/
