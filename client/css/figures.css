@@ -134,3 +134,8 @@ footer{
   font-family:var(--data); font-size:.68rem;
   letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft);
 }
+
+/* ---------- top 10 charts ---------- */
+.top10 text{font-family: var(--data); fill:var(--ink)}
+.top10 .name{font-size:.75rem}
+.top10 .pct{font-size: 0.7rem; fill:var(--ink-soft)}

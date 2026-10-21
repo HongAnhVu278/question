@@ -45,68 +45,65 @@ const ladderObserver = new IntersectionObserver((entries) => {
 
 if (ladder.length) ladderObserver.observe(document.getElementById('ladderSection'));
 
+const LABEL = 18
+
+function drawPanel(selector, bars, x) {
+  const y = d3.scaleBand()
+    .domain(bars.map(d => d.isco))
+    .range([0,500])
+    .padding(0.2);
+
+  const svg = d3.select(selector)
+
+  // add color bars
+  svg.selectAll("rect")
+    .data(bars)
+    .join("rect")
+    .attr("x", 0)
+    .attr("y", d => y(d.isco) + LABEL)
+    .attr("width", d => x(d.share))
+    .attr("height", y.bandwidth() - LABEL)
+    .attr("fill", "tomato")
+  
+  // add text for bars
+  svg.selectAll("text.name")
+    .data(bars)
+    .join("text")
+    .attr("class", "name")
+    .attr("x",0)
+    .attr("y", d => y(d.isco) + 14)
+    .text(d => d.label)
+
+  // add % for bars
+  svg.selectAll("text.pct")
+    .data(bars)
+    .join("text")
+    .attr("class", "pct")
+    .attr("x", d => x(d.share) + 4)
+    .attr("y", d => y(d.isco) + LABEL + (y.bandwidth() - LABEL) /2)
+    .attr("dy", "0.35em")
+    .text(d => d3.format(".1%")(d.share))
+
+}
+
 
 async function drawChart() {
   const data = await d3.json("data/top10_2025.json")
 
-  const usaData = data.entries.find(item => item.code == "USA")
+  const usaData = data.entries.find(item => item.code === "USA")
 
   const usaGirlData = usaData.girls.bars
   const usaBoyData = usaData.boys.bars
-  const LABEL = 18
 
   const x = d3.scaleLinear()
   .domain([0, Math.max(
     d3.max(usaGirlData, d => d.share),
     d3.max(usaBoyData, d => d.share)
   )])
-  .range([0,400]);
+  .range([0,340]);
 
-  const yGirl = d3.scaleBand()
-    .domain(usaGirlData.map(d => d.isco))
-    .range([0,500])
-    .padding(0.2);
-  
-  const yBoys = d3.scaleBand()
-    .domain(usaBoyData.map(d => d.isco))
-    .range([0,500])
-    .padding(0.2);
-
-  d3.select("#chart-girls")
-    .selectAll("rect")
-    .data(usaGirlData)
-    .join("rect")
-    .attr("x", 0)
-    .attr("y", d => yGirl(d.isco) + LABEL)
-    .attr("width", d => x(d.share))
-    .attr("height", yGirl.bandwidth() - LABEL)
-    .attr("fill", "tomato")
-  
-  d3.select("#chart-girls")
-    .selectAll("text")
-    .data(usaGirlData)
-    .join("text")
-    .attr("x",0)
-    .attr("y", d => yGirl(d.isco)+14)
-    .text(d => d.label)
-  
-  d3.select("#chart-boys")
-    .selectAll("rect")
-    .data(usaBoyData)
-    .join("rect")
-    .attr("x", 0)
-    .attr("y", d => yBoys(d.isco) +  LABEL)
-    .attr("width", d => x(d.share))
-    .attr("height", yBoys.bandwidth() - LABEL )
-    .attr("fill", "tomato")
-  
-  d3.select("#chart-boys")
-    .selectAll("text")
-    .data(usaBoyData)
-    .join("text")
-    .attr("x",0)
-    .attr("y", d => yBoys(d.isco)+14)
-    .text(d => d.label)
+  drawPanel("#chart-girls", usaGirlData,x)
+  drawPanel("#chart-boys", usaBoyData, x)
 
 }
 
